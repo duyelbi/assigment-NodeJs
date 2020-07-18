@@ -1,0 +1,209 @@
+<%- include('../playout/header.ejs'); -%>
+<!-- END TOPBAR -->
+<!-- START CONTAINER -->
+<div class="page-container row-fluid container-fluid">
+  <!-- SIDEBAR - START -->
+
+  <%- include('../playout/menu.ejs'); -%>
+
+  <!--  SIDEBAR - END -->
+  <!-- START CONTENT -->
+  <section id="main-content" class=" ">
+    <section class="wrapper main-wrapper row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="pull-left">
+            <h1 class="title">Add Product</h1>
+          </div>
+          <div class="pull-right hidden-xs"></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-xs-12">
+        <section class="box">
+          <header class="panel_header">
+            <h2 class="title pull-left">Information</h2>
+            <div class="actions panel_actions pull-right">
+              <a class="box_toggle fa fa-chevron-down"></a>
+              <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
+              <a class="box_close fa fa-times"></a>
+            </div>
+          </header>
+          <div class="content-body">
+            <div class="row">
+              <form action="" method="POST" enctype="multipart/form-data">
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Name</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                      <input type="text" id="name" value="<%= product.name %>" class="form-control" name="name" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Category:</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                      <% for (var i = 0; i < cate.length; i++) {%>
+                      <!-- Default checked -->
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="cate" id="defaultUnchecked"
+                          value="<%= cate[i].name%>" />
+                        <label class="custom-control-label" for="defaultUnchecked"><%= cate[i].name%></label>
+                      </div>
+                      <%}%>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Image</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                        <input type="file" id="image" value="" required="required" class="form-control-file border"
+                        name="image" multiple />
+                        <input type="file"  value=""  class="form-control-file border"
+                        name="image" multiple />
+                        <input type="file"  value=""  class="form-control-file border"
+                        name="image" multiple />
+                        <input type="file"  value=""  class="form-control-file border"
+                        name="image" multiple />
+                        <input type="file" value=""  class="form-control-file border"
+                        name="image" multiple />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                      <div class="preview-images"></div>
+                  </div>
+              </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Price</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                      <input type="number" id="price" value="<%= product.price %>" min="0" class="form-control" name="price" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Quantity</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                      <input type="number" id="quantity" value="<%= product.quantity %>" min="0" class="form-control" name="quantity" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Color:</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                        <% for (var i = 0; i < color.length; i++) {%>
+                      <!-- Default checked -->
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="color" id="defaultUnchecked"
+                          value="<%= color[i].name%>" />
+                        <label class="custom-control-label" for="defaultUnchecked"><%= color[i].name%></label>
+                      </div>
+                      <%}%>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Size:</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                        <% for (var i = 0; i < size.length; i++) {%>
+                      <!-- Default checked -->
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="size" id="defaultUnchecked"
+                          value="<%= size[i].name%>" />
+                        <label class="custom-control-label" for="defaultUnchecked"><%= size[i].name%></label>
+                      </div>
+                      <%}%>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                    <label class="form-label" for="field-120334">Tags:</label>
+                    <span class="desc"></span>
+                    <div class="controls">
+                        <% for (var i = 0; i < tag.length; i++) {%>
+                      <!-- Default checked -->
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="tag" id="defaultUnchecked"
+                          value="<%= tag[i].name%>" />
+                        <label class="custom-control-label" for="defaultUnchecked"><%= tag[i].name%></label>
+                      </div>
+                      <%}%>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="form-group">
+                      <label class="form-label" for="field-120334">Product information</label>
+                      <span class="desc"></span>
+                      <div class="controls">
+                          <textarea name="des" value="<%= product.des %>" id="des" class="form-control autogrow" cols="5" ></textarea>
+                      </div>
+                  </div>
+              </div>
+
+
+                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                  <div class="text-left">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+
+
+  <script>
+    $(document).ready(function () {
+      // Multiple images preview in browser - trungquandev.com
+      let imagesPreview = function (input, placeToInsertImagePreview) {
+        if (input.files) {
+          let filesAmount = input.files.length;
+          for (i = 0; i < filesAmount; i++) {
+            let reader = new FileReader();
+            reader.onload = function (event) {
+              $($.parseHTML("<img>")).attr("src", event.target.result).appendTo(placeToInsertImagePreview);
+            }
+            reader.readAsDataURL(input.files[i]);
+          }
+        }
+      };
+
+      $("#input-many-files").on("change", function () {
+        imagesPreview(this, "div.preview-images");
+      });
+    });
+  </script>
+
+  <!-- END CONTENT -->
+  <div class="chatapi-windows"></div>
+  <%- include('../playout/footer.ejs'); -%>
+                    </div>
